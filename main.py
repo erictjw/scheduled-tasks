@@ -6,7 +6,7 @@
 # See the solution video in the 100 Days of Python Course for explainations.
 
 
-# print("🔥 SCRIPT IS EXECUTING")
+print("🔥 SCRIPT IS EXECUTING")
 # import sys
 # sys.stdout.flush()
 
@@ -28,11 +28,13 @@ data = pandas.read_csv("birthdays.csv")
 
 birthday_dict = {(data_row["month"], data_row["day"]): data_row for (index, data_row) in data.iterrows()}
 
+print(f"birthday_dict is {birthday_dict}")
+
 if ((today) in birthday_dict):
     birthday_email = birthday_dict[today]["email"]
     birthday_name = birthday_dict[today]["name"]
 
-    print(birthday_email)
+    print(f"birthday_email is {birthday_email}")
     
     letter_list = random.randint(1,3)
     letter = f"./letter_templates/letter_{letter_list}.txt"
@@ -47,7 +49,7 @@ if ((today) in birthday_dict):
         connection.starttls()
         connection.login(user=MY_EMAIL, password=MY_PASSWORD)
         connection.sendmail(from_addr=MY_EMAIL,
-                            to_addrs=birthday_email,
+                            to_addrs={birthday_email,
                             msg=f"Subject:Happy birthday {birthday_name}\n\n{letter}"
                             )
 
