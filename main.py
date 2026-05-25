@@ -27,7 +27,7 @@ today = (today_month, today_day)
 data = pandas.read_csv("birthdays.csv")
 
 birthday_dict = {(data_row["month"], data_row["day"]): data_row for (index, data_row) in data.iterrows()}
-print{f"today is {today}"}
+print(f"today is {today}")
 print(f"birthday_dict is {birthday_dict}")
 
 if ((today) in birthday_dict):
