@@ -28,6 +28,8 @@ if ((today) in birthday_dict):
     birthday_email = birthday_dict[today]["email"]
     birthday_name = birthday_dict[today]["name"]
 
+    print(birthday_email)
+    
     letter_list = random.randint(1,3)
     letter = f"./letter_templates/letter_{letter_list}.txt"
     with open(letter) as letter_file:
