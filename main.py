@@ -28,21 +28,21 @@ if ((today) in birthday_dict):
     birthday_email = birthday_dict[today]["email"]
     birthday_name = birthday_dict[today]["name"]
 
-letter_list = random.randint(1,3)
-letter = f"./letter_templates/letter_{letter_list}.txt"
-with open(letter) as letter_file:
-    letter = letter_file.read()
-    letter = letter.replace("[NAME]", birthday_name)
-
-my_email = "infotoerictangallery@gmail.com"
-password = "ubetcnqvnrtoyvtg"
-
-with smtplib.SMTP("smtp.gmail.com", 587) as connection:
-    connection.starttls()
-    connection.login(user=MY_EMAIL, password=MY_PASSWORD)
-    connection.sendmail(from_addr=MY_EMAIL,
-                        to_addrs={birthday_email},
-                        msg=f"Subject:Happy birthday {birthday_name}\n\n{letter}"
-                        )
+    letter_list = random.randint(1,3)
+    letter = f"./letter_templates/letter_{letter_list}.txt"
+    with open(letter) as letter_file:
+        letter = letter_file.read()
+        letter = letter.replace("[NAME]", birthday_name)
+    
+    my_email = "infotoerictangallery@gmail.com"
+    password = "ubetcnqvnrtoyvtg"
+    
+    with smtplib.SMTP("smtp.gmail.com", 587) as connection:
+        connection.starttls()
+        connection.login(user=MY_EMAIL, password=MY_PASSWORD)
+        connection.sendmail(from_addr=MY_EMAIL,
+                            to_addrs={birthday_email},
+                            msg=f"Subject:Happy birthday {birthday_name}\n\n{letter}"
+                            )
 
 
