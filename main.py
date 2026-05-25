@@ -16,7 +16,7 @@ import os
 MY_EMAIL = os.environ.get("MY_EMAIL")
 MY_PASSWORD = os.environ.get("MY_PASSWORD")
 
-today = dt.datetime.today()
+today = datetime.today()
 today_month = today.month
 today_day = today.day
 today = (today_month, today_day)
